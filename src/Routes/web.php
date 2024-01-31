@@ -5,7 +5,7 @@ use RachidLaasri\LaravelInstaller\Controllers\InstallHelperController;
 // verify
 Route::group([
     'prefix' => 'install',
-    'middleware' => ['web', 'install', 'is_not_verified']
+    'middleware' => ['web']
 ], function () {
     Route::get('/', [InstallHelperController::class, 'getPurchaseCodeVerifyPage'])
         ->name('verify');
@@ -17,7 +17,7 @@ Route::group([
     'prefix' => 'install',
     'as' => 'LaravelInstaller::',
     'namespace' => 'RachidLaasri\LaravelInstaller\Controllers',
-    'middleware' => ['web', 'install', 'is_verified']
+    'middleware' => ['web']
 ], function () {
     Route::get('/welcome', [
         'as' => 'welcome',
